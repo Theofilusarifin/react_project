@@ -1,14 +1,15 @@
+import { IconBrandTwitter } from '@tabler/icons';
+
 export default function app() {
     return (
         <div>
-            <button
-                type='button'
-                className='btn btn-info'
-                data-bs-toggle='modal'
-                data-bs-target='#staticBackdrop'
-            >
-                Launch static backdrop modal
-            </button>
+            <Button>
+                <IconBrandTwitter />
+                Login with Twitter
+            </Button>
+            <Button>
+                Login with no icon
+            </Button>
             <div
                 class='modal fade'
                 id='staticBackdrop'
@@ -48,5 +49,18 @@ export default function app() {
                 </div>
             </div>
         </div>
+    );
+}
+
+function Button(props) {
+    return (
+        <button
+            type='button'
+            className='btn btn-info'
+            data-bs-toggle='modal'
+            data-bs-target='#staticBackdrop'
+        >
+            {props.text || props.children}
+        </button>
     );
 }
